@@ -120,18 +120,62 @@
         <a href="#">LinkedIn</a> • <a href="#">Twitter</a>
       </div>
     </div>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Submit</button>
+    <form action="https://formspree.io/f/mblkwggb" method="POST" id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" id="submit-btn">Submit</button>
     </form>
+    <div id="form-status" style="display: none; margin-top: 1rem;"></div>
   </section>
 
   <!-- Footer -->
   <footer>
     <small>© 2025 Agent Eval Institute | All Rights Reserved • <a href="#">Privacy Policy</a> • <a href="#">Terms of Service</a> • <a href="#">Contact Us</a></small>
   </footer>
+
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submit-btn');
+      const statusDiv = document.getElementById('form-status');
+      
+      // Show loading state
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      statusDiv.style.display = 'block';
+      statusDiv.innerHTML = '<p style="color: #666;">Sending your message...</p>';
+      
+      // Get form data
+      const formData = new FormData(this);
+      
+      // Send to Formspree
+      fetch(this.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.ok) {
+          statusDiv.innerHTML = '<p style="color: #28a745;">Message sent successfully! We\'ll get back to you soon.</p>';
+          this.reset();
+        } else {
+          throw new Error('Something went wrong');
+        }
+      })
+      .catch(error => {
+        statusDiv.innerHTML = '<p style="color: #dc3545;">Sorry, there was an error sending your message. Please try again.</p>';
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit';
+      });
+    });
+  </script>
 
 </body>
 
