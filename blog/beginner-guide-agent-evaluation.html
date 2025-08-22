@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Beginner's Guide to Agent Evaluation - Agent Eval Institute</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <style>
+    body {
+      margin: 0;
+      line-height: 1.7;
+    }
+    .blog-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .blog-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    .blog-meta {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      border-bottom: 1px solid #e1e1e1;
+      padding-bottom: 2rem;
+    }
+    .blog-content h2 {
+      color: #333;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+    .blog-content h3 {
+      color: #444;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .blog-content p {
+      margin-bottom: 1.5rem;
+      color: #555;
+    }
+    .blog-content ul, .blog-content ol {
+      margin-bottom: 1.5rem;
+      padding-left: 2rem;
+    }
+    .blog-content li {
+      margin-bottom: 0.5rem;
+    }
+    .highlight-box {
+      background: #f8f9fa;
+      border-left: 4px solid #667eea;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .back-to-blog {
+      text-align: center;
+      margin: 3rem 0;
+      padding: 2rem;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+    nav {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="container-fluid">
+    <ul><li><strong>Agent Eval Institute</strong></li></ul>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+      <li><a href="../index.html#events">Events</a></li>
+    </ul>
+  </nav>
+
+  <!-- Blog Header -->
+  <header class="blog-header">
+    <h1>The Beginner's Guide to Agent Evaluation</h1>
+    <p>A comprehensive introduction to evaluating AI agents for newcomers</p>
+  </header>
+
+  <!-- Blog Content -->
+  <main class="blog-content">
+    <div class="blog-meta">
+      <time datetime="2025-08-22">August 22, 2025</time> • 8 min read • By Agent Eval Institute Team
+    </div>
+
+    <p>Welcome to the world of agent evaluation! If you're new to AI agents and want to understand how to properly assess their performance, you've come to the right place. This guide will walk you through the fundamentals of evaluating AI agents, from understanding what evaluation means to implementing practical strategies for different types of agents.</p>
+
+    <h2>1. Understanding Agent Evaluation</h2>
+    
+    <p>Agent evaluation is the process of measuring how well an AI agent achieves its intended tasks. Unlike traditional model evaluation—which often focuses on static outputs—agent evaluation must account for multi-step reasoning, planning, and interaction with dynamic environments.</p>
+
+    <p>At its core, evaluation helps answer questions like:</p>
+    <ul>
+      <li><strong>Task performance:</strong> Can the agent complete its tasks accurately?</li>
+      <li><strong>Robustness:</strong> How well does it handle unexpected inputs?</li>
+      <li><strong>Alignment:</strong> Does it follow the intended guidelines or safety constraints?</li>
+    </ul>
+
+    <p>Think of evaluation as both a diagnostic tool (to uncover weaknesses) and a benchmarking tool (to compare approaches).</p>
+
+    <div class="highlight-box">
+      <strong>Pro Tip:</strong> If you want a deeper dive into the core components of agent evaluation and why it matters, check out our article: <a href="quick-intro-agent-evaluation.html">A Quick Intro to Agent Evaluation</a>.
+    </div>
+
+    <h2>2. Types of AI Agents You Might Evaluate</h2>
+    
+    <p>Different agents require different evaluation strategies:</p>
+    
+    <ul>
+      <li><strong>Conversational agents</strong> – Engage in dialogue and require evaluation of language coherence, relevance, and context retention.</li>
+      <li><strong>Single-task agents</strong> – Solve one specific problem, e.g., answering a question or performing a calculation.</li>
+      <li><strong>Multi-task / autonomous agents</strong> – Plan and execute sequences of actions across multiple tasks, e.g., a personal AI assistant.</li>
+    </ul>
+
+    <p>Knowing your agent type shapes your choice of metrics and evaluation framework.</p>
+
+    <h2>3. Evaluation Strategies for Different Types of Agents</h2>
+    
+    <p>Different agent types call for different evaluation lenses. Let's break them down one by one.</p>
+
+    <h3>Conversational Agents</h3>
+    
+    <p>These agents primarily answer questions based on their existing knowledge. For example, a customer service chatbot might handle queries like:</p>
+    
+    <ul>
+      <li>"What are your company's operating hours?"</li>
+      <li>"What's your return policy?"</li>
+    </ul>
+
+    <p>To evaluate conversational agents, focus on criteria such as:</p>
+    
+    <ul>
+      <li><strong>Prompt adherence</strong> – Does the agent follow instructions accurately?</li>
+      <li><strong>Answer relevance</strong> – Is the response directly related to the question?</li>
+      <li><strong>Answer correctness</strong> – Is the information provided correct?</li>
+      <li><strong>Knowledge retention</strong> – Does the agent remember details from earlier in the conversation?</li>
+      <li><strong>Hallucination</strong> – Does it avoid making up facts or providing inaccurate information?</li>
+      <li><strong>Toxicity and safety</strong> – Are the responses free from harmful, biased, or inappropriate content?</li>
+      <li><strong>Information security</strong> – Does the agent avoid exposing confidential information?</li>
+      <li><strong>User satisfaction</strong> – Is the overall user experience positive?</li>
+    </ul>
+
+    <h3>Single-Task Agents</h3>
+    
+    <p>Things get more interesting when agents gain access to tools.</p>
+    
+    <p>A single-task agent typically uses one tool—for instance, a search function. A customer service agent with access to an inventory tool might handle queries like:</p>
+    
+    <ul>
+      <li>"Do you still have the black draper dress in stock?"</li>
+    </ul>
+
+    <p>Evaluation criteria now include all the conversational metrics above, plus:</p>
+    
+    <ul>
+      <li><strong>Tool call recall</strong> – Does the agent call the tool when needed?</li>
+      <li><strong>Tool call precision</strong> – Does it avoid unnecessary tool calls?</li>
+      <li><strong>Tool call correctness</strong> – Are the right parameters passed when the tool is used?</li>
+    </ul>
+
+    <h3>Multi-Task / Autonomous Agents</h3>
+    
+    <p>Multi-task agents add another layer of complexity. They have multiple tools and must choose the right tools in the correct order.</p>
+    
+    <p>For example, a customer service agent with both a customer profile search tool and a product return tool should be able to handle requests like:</p>
+    
+    <ul>
+      <li>"I want to return the grey skirt I bought last week."</li>
+    </ul>
+
+    <p>The ideal workflow might look like this:</p>
+    
+    <ol>
+      <li>Request personal details, then use the profile search tool to locate the account.</li>
+      <li>Confirm the purchased item with the user.</li>
+      <li>Use the product return tool to initiate the return.</li>
+    </ol>
+
+    <p>These agents must make autonomous decisions, handle follow-up questions, and manage multi-turn conversations effectively. Evaluating multi-turn interactions is a big topic on its own—we'll dive into that in a future post.</p>
+
+    <div class="highlight-box">
+      <strong>Looking Ahead:</strong> Multi-turn interaction evaluation is a complex topic that deserves its own deep dive. Stay tuned for our upcoming post on this subject!
+    </div>
+
+    <h2>Getting Started with Agent Evaluation</h2>
+    
+    <p>Now that you understand the different types of agents and evaluation strategies, here are some practical next steps:</p>
+    
+    <ol>
+      <li><strong>Identify your agent type</strong> – Start by categorizing the agent you want to evaluate</li>
+      <li><strong>Choose relevant metrics</strong> – Select evaluation criteria that align with your agent's purpose</li>
+      <li><strong>Design test scenarios</strong> – Create realistic use cases that cover both normal and edge cases</li>
+      <li><strong>Implement evaluation framework</strong> – Set up automated testing where possible, and plan for human evaluation</li>
+      <li><strong>Iterate and improve</strong> – Use evaluation results to enhance both your agent and evaluation methods</li>
+    </ol>
+
+    <p>Remember, agent evaluation is an iterative process. Start simple and gradually build more sophisticated evaluation frameworks as you learn more about your specific use case.</p>
+
+    <div class="back-to-blog">
+      <a href="../blog.html" role="button">← Back to Blog</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 2rem; background: #f1f1f1;">
+    <small>© 2025 Agent Eval Institute | All Rights Reserved • <a href="#">Privacy Policy</a> • <a href="#">Terms of Service</a> • <a href="#">Contact Us</a></small>
+  </footer>
+
+</body>
+</html>
